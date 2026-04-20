@@ -12,9 +12,12 @@ model = pickle.load(open("model.pkl", "rb"))
 # -----------------------------
 # Firebase Setup (CORRECT ✅)
 # -----------------------------
+# -----------------------------
+# Firebase Setup (FINAL FIX ✅)
+# -----------------------------
 if not firebase_admin._apps:
-    firebase_dict = st.secrets["firebase_key"]  # from Streamlit secrets
-    cred = credentials.Certificate(firebase_dict)
+    firebase_dict = dict(st.secrets["firebase_key"])  # 👈 ADD THIS
+    cred = credentials.Certificate(firebase_dict)     # 👈 ADD THIS
 
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://air-project-14108-default-rtdb.asia-southeast1.firebasedatabase.app/'
