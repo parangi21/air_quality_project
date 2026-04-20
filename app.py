@@ -4,7 +4,7 @@ from firebase_admin import credentials, db
 import firebase_admin
 
 # Convert secrets to proper dict
-firebase_dict = dict(st.secrets["firebase_key"])
+firebase_dict = st.secrets["firebase_key"]
 
 # Fix private key formatting
 firebase_dict["private_key"] = firebase_dict["private_key"].replace("\\n", "\n")
